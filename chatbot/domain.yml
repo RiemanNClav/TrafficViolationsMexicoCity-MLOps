@@ -1,0 +1,115 @@
+version: "3.1"
+
+intents:
+  - intent_inicio
+  - intent_preferencia1
+  - intent_preferencia2
+  - intent_preferencia_manual1
+  - intent_preferencia_manual2
+  - intent_peticion_latitud
+  - intent_peticion_longitud
+  - intent_peticion_color_auto
+  - intent_peticion_marca_auto
+  - intent_peticion_alcaldia
+  - intent_peticion_colonia
+  - intent_utter_greet
+
+
+entities:
+  - latitud
+  - longitud
+  - color
+  - marca
+  - colonia
+  - alcaldia
+
+slots:
+  latitud:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: latitud
+  longitud:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: longitud
+  color:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: color
+  marca:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: marca
+
+  colonia:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: colonia
+
+  alcaldia:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: alcaldia
+
+
+
+responses:
+
+  utter_greet:
+    - text: "Hola, un gusto saludarte, soy el asistente virtual del Gobierno de la CDMX, te compartiré información acerca de estadísticas generales de los incidentes de tránsito que más suelen ocurrir en la alcaldía-colonia donde te encuentres en ese momento. \n Además, seré capaz de ayudarte a prevenir alguno en particular, tratando de predecir el incidente más propenso que es ese momento puedas cometer, teniendo tu ubicación actual y un par de datos más."
+
+  utter_preferencia:
+    - text: "¿Prefieres darme tu ubicación manualmente o compartirla (ubicación actual)?"
+
+  utter_greet2:
+    - text: 'Ok, entendido, ingresa los siguientes datos:'
+
+  utter_preferencia_manual:
+    - text: '¿Te sabes tu latitud y longitud?'
+
+  utter_greet3:
+    - text: "Vale, increíble, ingresa los siguientes datos."
+
+  utter_greet4:
+    - text: "No te preocupes, no pasa nada, compárteme entonces los siguientes datos."
+
+  utter_peticion_alcaldia:
+    - text: 'Fabuloso, ingresa entonces tu Alcaldía:'
+
+  utter_peticion_colonia:
+    - text: 'Colonia:'
+
+  utter_peticion_latitud:
+    - text: 'Increíble, ingresa tu Latitud:'
+
+  utter_peticion_longitud:
+    - text: 'Longitud:'
+
+  utter_peticion_color_auto:
+    - text: "Color de tu automóvil (si tiene más de un color, escribe el de más predominancia):"
+
+  utter_peticion_marca_auto:
+    - text: 'Marca de tu automóvil:'
+
+  utter_peticion_ubicacion_actual:
+    - text: "Ubicación actual:"
+
+  utter_prediccion_categoria:
+    - text: "El incidente de tránsito que es más probable que cometas de acuerdo a los siguientes datos: Alcaldía: alcaldia Colonia: colonia Color de auto: color Marca de auto: marca es prediccion"
+
+  utter_pdf_estadisticas:
+    - text: 'En el link siguiente podrás visualizar las estadísticas generales que más ocurren en la Alcaldía {alcaldia}, Colonia {colonia}.'
+
+  utter_despedida:
+    - text: "Fue un gusto ayudarte a prevenir un incidente de tránsito, recuerda manejar con precaución."
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

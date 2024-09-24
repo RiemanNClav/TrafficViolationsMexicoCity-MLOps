@@ -1,0 +1,68 @@
+version: "3.1"
+
+rules:
+
+- rule: regla_latitud_longitud1
+  steps:
+  - intent: intent_inicio
+  - action: utter_greet
+
+- rule: regla_latitud_longitud2
+  steps:
+  - intent: intent_utter_greet
+  - action: utter_preferencia
+
+- rule: regla_latitud_longitud3
+  steps:
+  - intent: intent_preferencia1
+  - action: utter_preferencia_manual
+
+- rule: regla_latitud_longitud4
+  steps:
+  - intent: intent_preferencia_manual2
+  - action: utter_peticion_latitud
+
+- rule: regla_latitud_longitud5
+  steps:
+  - intent: intent_peticion_latitud
+  - action: utter_peticion_longitud
+
+- rule: regla_latitud_longitud6
+  steps:
+  - intent: intent_peticion_longitud
+  - action: utter_peticion_color_auto
+
+- rule: regla_latitud_longitud7
+  steps:
+  - intent: intent_peticion_color_auto
+  - action: utter_peticion_marca_auto
+
+
+- rule: regla_latitud_longitud8
+  steps:
+  - intent: intent_peticion_marca_auto
+  - action: utter_prediccion_categoria
+
+
+
+
+- rule: regla_alcaldia_colonia1
+  steps:
+  - intent: intent_preferencia1
+  - action: utter_preferencia_manual
+
+- rule: regla_alcaldia_colonia2
+  steps:
+  - intent: intent_preferencia_manual1
+  - action: utter_peticion_alcaldia
+
+- rule: regla_alcaldia_colonia3
+  steps:
+  - intent: intent_peticion_alcaldia
+  - action: utter_peticion_colonia
+
+- rule: regla_alcaldia_colonia4
+  steps:
+  - intent: intent_peticion_colonia
+  - action: utter_peticion_color_auto
+

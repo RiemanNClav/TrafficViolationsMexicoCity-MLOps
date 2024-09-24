@@ -1,0 +1,41 @@
+version: "3.1"
+
+stories:
+
+- story: manulamente_latitud_longitud1
+  steps:
+    - intent: intent_inicio
+    - action: utter_greet
+    - intent: intent_utter_greet
+    - action: utter_preferencia
+    - intent: intent_preferencia1
+    - action: utter_preferencia_manual
+    - intent: intent_preferencia_manual2
+    - action: utter_peticion_latitud
+    - intent: intent_peticion_latitud
+    - action: utter_peticion_longitud
+    - intent: intent_peticion_longitud
+    - action: utter_peticion_color_auto
+    - intent: intent_peticion_color_auto
+    - action: utter_peticion_marca_auto
+    - intent: intent_peticion_marca_auto
+    - action: utter_prediccion_categoria
+
+- story: manulamente_alcaldia_colonia1
+  steps:
+    - intent: intent_inicio
+    - action: utter_greet
+    - intent: intent_utter_greet
+    - action: utter_preferencia
+    - intent: intent_preferencia1
+    - action: utter_preferencia_manual
+    - intent: intent_preferencia_manual1
+    - action: utter_peticion_alcaldia
+    - intent: intent_peticion_alcaldia
+    - action: utter_peticion_colonia
+    - intent: intent_peticion_colonia
+    - action: utter_peticion_color_auto
+    - intent: intent_peticion_color_auto
+    - action: utter_peticion_marca_auto
+    - intent: intent_peticion_marca_auto
+    - action: utter_prediccion_categoria

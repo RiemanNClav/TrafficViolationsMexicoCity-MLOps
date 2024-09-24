@@ -1,0 +1,596 @@
+version: "3.1"
+
+nlu:
+- intent: intent_inicio
+  examples: |
+    - Hey 
+    - Hola
+    - Hola, Buenos dias
+    - Hola, Buenas tardes
+    - Hola, Buenas noches
+    - Que tal
+    - hola, buenos dias
+    - hola, buenas tardes
+    - hola, buenas noches
+    - Buenos Dias
+    - Buenas Tardes
+    - Buenas Noches
+    - buenos dias
+    - buenas tardes
+    - buenas noches
+
+- intent: intent_preferencia1
+  examples: |
+    - la primera opcion
+    - La primera que dices
+    - La primera
+    - la de compartir mi ubicacion manualmente
+    - Prefiero darte mi ubicación manualmente
+    - Darte mi ubicación manualmente
+    - Mi ubicacion manualmente
+    - Manualmente
+    - Quiero darte mi ubicación manualmente
+    - Te doy mi ubicación manualmente
+    - La ubicación te la doy manualmente
+    - Yo prefiero compartir la ubicación manualmente
+    - Compartir mi ubicación de manera manual
+    - Prefiero ingresar mi ubicación de forma manual
+    - La ubicación la ingreso manualmente
+    - Te mando mi ubicación manual
+    - Enviaré mi ubicación de manera manual
+    - Prefiero que la ubicación sea manual
+    - Mejor ingreso la ubicación manualmente
+
+
+- intent: intent_preferencia2
+  examples: |
+    - Te comparto mi ubicacion actual
+    - Te comparto la ubicación actual
+    - te la comparto
+    - Prefiero compartirtela
+    - Compartiré mi ubicación actual
+    - Te paso mi ubicación actual
+    - Te mando mi ubicación
+    - Te envío mi ubicación actual
+    - Quiero compartirte mi ubicación
+    - Te envío mi ubicación
+    - Prefiero mandarte mi ubicación actual
+    - Aquí te dejo mi ubicación actual
+    - Te comparto mi localización actual
+    - Envío mi ubicación
+    - Prefiero enviarte mi ubicación
+    - Mi ubicación te la comparto ahora
+    - Te paso la ubicación en este momento
+    - Voy a compartirte mi ubicación actual
+
+- intent: intent_preferencia_manual1
+  examples: |
+    - no
+    - No
+    - No me las sé
+    - no me las se
+    - No, no me las sé
+    - no me se ninguna de las dos
+    - las desconozco
+    - No las conozco
+    - No tengo la latitud
+    - desconozco la longitud
+    - desconozco las dos
+    - solo me se la longitud
+    - me se la latitud
+    - No me se ninguna de las dos
+    - No tengo idea de cuales sean
+    - No conozco mi latitud ni mi longitud
+    - no quiero darlas
+    - No estoy seguro de ellas
+
+- intent: intent_preferencia_manual2
+  examples: |
+    - si, si me la sé
+    - Si
+    - si
+    - me sé las dos
+    - claro
+    - por supuesto
+    - me sé ambas
+    - Sí, las conozco
+    - Sí, sé ambas
+    - Sí, me sé mi latitud y longitud
+    - Sí, las sé perfectamente
+    - Sí, conozco mi latitud y longitud
+    - Sé dónde estoy
+    - Sí, puedo decirte mi latitud y longitud
+    - Claro, conozco mi ubicación
+    - Sí, sé mi ubicación exacta
+    - Claro, me sé las coordenadas
+    - Sí, estoy seguro de mi latitud y longitud
+
+
+- intent: intent_utter_greet
+  examples: |
+    - Claro
+    - Por supuesto
+    - De acuerdo
+    - Sí, perfecto
+    - Ok
+    - Está bien
+    - Sin problema
+    - Correcto
+    - Como quieras
+    - Sí, adelante
+    - Me parece bien
+    - Perfecto
+    - Vamos a ello
+    - Está claro
+    - Totalmente
+    - Entendido
+
+- intent: intent_peticion_latitud
+  examples: |
+    - [19.38065](latitud)
+    - [19.44552](latitud)
+    - [19.29245](latitud)
+    - [19.47576](latitud)
+    - [19.43769](latitud)
+    - [19.34047](latitud)
+    - [19.43653](latitud)
+    - [19.34742](latitud)
+    - [19.48969](latitud)
+    - [19.44552](latitud)
+    - [19.31674](latitud)
+    - [19.41661](latitud)
+    - [19.47534](latitud)
+    - [19.38215](latitud)
+    - [19.34434](latitud)
+    - [19.42808](latitud)
+    - [19.48894](latitud)
+    - [19.42093](latitud)
+    - [19.35901](latitud)
+    - [19.42345](latitud)
+    - [19.51234](latitud)
+    - [19.38671](latitud)
+    - [19.46453](latitud)
+    - [19.44067](latitud)
+    - [19.37899](latitud)
+    - [19.45001](latitud)
+    - [19.34781](latitud)
+    - [19.42567](latitud)
+    - [19.51129](latitud)
+    - [19.39467](latitud)
+    - [19.47401](latitud)
+    - [19.38944](latitud)
+    - [19.39876](latitud)
+    - [19.48234](latitud)
+    - [19.33356](latitud)
+    - [19.42210](latitud)
+    - [19.45022](latitud)
+    - [19.46788](latitud)
+    - [19.37144](latitud)
+    - [19.41234](latitud)
+    - [19.48654](latitud)
+    - [19.35412](latitud)
+    - [19.45788](latitud)
+    - [19.37245](latitud)
+    - [19.39100](latitud)
+    - [19.48900](latitud)
+    - [19.44222](latitud)
+    - [19.41756](latitud)
+    - [19.43111](latitud)
+    - [19.34876](latitud)
+    - [19.35](latitud)
+    - [19.4](latitud)
+    - [19.37](latitud)
+    - [19.4](latitud)
+    - [19.444](latitud)
+    - [19.46](latitud)
+    - [19.4825](latitud)
+    - [19.389](latitud)
+    - [19.4533](latitud)
+    - [19.482](latitud)
+    - [19.3918](latitud)
+    - [19.3907](latitud)
+    - [19.426](latitud)
+    - [19.3547](latitud)
+    - [19.48](latitud)
+    - [19.39](latitud)
+    - [19.43](latitud)
+    - [19.4444](latitud)
+    - [19.47](latitud)
+    - [19.438](latitud)
+
+- intent: intent_peticion_longitud
+  examples: |
+    - [-99.18487](longitud)
+    - [-99.1664](longitud)
+    - [-99.17955](longitud)
+    - [-99.05837](longitud)
+    - [-99.05643](longitud)
+    - [-99.17863](longitud)
+    - [-99.02166](longitud)
+    - [-99.02049](longitud)
+    - [-99.09931](longitud)
+    - [-99.18163](longitud)
+    - [-99.11819](longitud)
+    - [-99.14753](longitud)
+    - [-99.03152](longitud)
+    - [-99.08136](longitud)
+    - [-99.05956](longitud)
+    - [-99.04698](longitud)
+    - [-99.13998](longitud)
+    - [-99.08147](longitud)
+    - [-99.12794](longitud)
+    - [-99.14842](longitud)
+    - [-99.07334](longitud)
+    - [-99.18766](longitud)
+    - [-99.14884](longitud)
+    - [-99.08371](longitud)
+    - [-99.02823](longitud)
+    - [-99.16983](longitud)
+    - [-99.1019](longitud)
+    - [-99.13706](longitud)
+    - [-99.13672](longitud)
+    - [-99.18781](longitud)
+    - [-99.07984](longitud)
+    - [-98.96603](longitud)
+    - [-99.0772](longitud)
+    - [-99.13698](longitud)
+    - [-99.16137](longitud)
+    - [-99.14423](longitud)
+    - [-99.14966](longitud)
+    - [-99.06889](longitud)
+    - [-99.12194](longitud)
+    - [-99.20305](longitud)
+    - [-99.0339](longitud)
+    - [-99.14314](longitud)
+    - [-99.16169](longitud)
+    - [-99.1124](longitud)
+
+- intent: intent_peticion_color_auto
+  examples: |
+    - Rojo(color)
+    - rojo(color)
+    - Verde(color)
+    - verde(color)
+    - Amarillo(color)
+    - amarillo(color)
+    - Gris(color)
+    - gris(color)
+    - Blanco(color)
+    - blanco(color)
+    - Azul(color)
+    - azul(color)
+    - Morado(color)
+    - morado(color)
+    - Rosa(color)
+    - rosa(color)
+    - Negro(color)
+    - negro(color)
+    - Plateado(color)
+    - plateado(color)
+    - Dorado(color)
+    - dorado(color)
+    - Marrón(color)
+    - marrón(color)
+    - Naranja(color)
+    - naranja(color)
+    - Celeste(color)
+    - celeste(color)
+    - Beige(color)
+    - beige(color)
+    - Vino(color)
+    - vino(color)
+    - Turquesa(color)
+    - turquesa(color)
+    - Coral(color)
+    - coral(color)
+    - Magenta(color)
+    - magenta(color)
+    - Limón(color)
+    - limón(color)
+    - Lavanda(color)
+    - lavanda(color)
+    - Cian(color)
+    - cian(color)
+    - Champán(color)
+    - champán(color)
+    - Terracota(color)
+    - terracota(color)
+    - Púrpura(color)
+    - púrpura(color)
+    - VERDE(color)
+    - AMARILLO(color)
+    - GRIS(color)
+    - BLANCO(color)
+    - AZUL(color)
+    - MORADO(color)
+    - ROSA(color)
+    - NEGRO(color)
+    - PLATEADO(color)
+    - DORADO(color)
+    - MARRÓN(color)
+    - NARANJA(color)
+    - CELESTE(color)
+    - BEIGE(color)
+    - VINO(color)
+    - TURQUESA(color)
+    - LILA(color)
+    - OLIVA(color)
+    - AQUA(color)
+    - SAND(color)
+
+- intent: intent_peticion_marca_auto
+  examples: |
+    - Nissan(marca)
+    - nissan(marca)
+    - Ford(marca)
+    - ford(marca)
+    - Toyota(marca)
+    - toyota(marca)
+    - Honda(marca)
+    - honda(marca)
+    - Chevrolet(marca)
+    - chevrolet(marca)
+    - Volkswagen(marca)
+    - volkswagen(marca)
+    - BMW(marca)
+    - bmw(marca)
+    - Audi(marca)
+    - audi(marca)
+    - Mercedes(marca)
+    - mercedes(marca)
+    - Mazda(marca)
+    - mazda(marca)
+    - Hyundai(marca)
+    - hyundai(marca)
+    - Kia(marca)
+    - kia(marca)
+    - Tesla(marca)
+    - tesla(marca)
+    - Jeep(marca)
+    - jeep(marca)
+    - Subaru(marca)
+    - subaru(marca)
+    - Renault(marca)
+    - renault(marca)
+    - chevy(marca)
+    - Chevy(marca)
+    - Ferrari(marca)
+    - ferrari(marca)
+    - Lamborghini(marca)
+    - lamborghini(marca)
+    - Porsche(marca)
+    - porsche(marca)
+    - Bugatti(marca)
+    - bugatti(marca)
+    - Maserati(marca)
+    - maserati(marca)
+    - Land Rover(marca)
+    - land rover(marca)
+    - Jaguar(marca)
+    - jaguar(marca)
+    - Alfa Romeo(marca)
+    - alfa romeo(marca)
+    - Peugeot(marca)
+    - peugeot(marca)
+    - Fiat(marca)
+    - fiat(marca)
+    - Citroën(marca)
+    - citroën(marca)
+    - Acura(marca)
+    - acura(marca)
+    - Infiniti(marca)
+    - infiniti(marca)
+    - Volvo(marca)
+    - volvo(marca)
+    - Mini(marca)
+    - mini(marca)
+    - Bentley(marca)
+    - bentley(marca)
+    - Rolls-Royce(marca)
+    - rolls-royce(marca)
+    - Aston Martin(marca)
+    - aston martin(marca)
+    - McLaren(marca)
+    - mclaren(marca)
+    - Suzuki(marca)
+    - suzuki(marca)
+    - Cadillac(marca)
+    - cadillac(marca)
+    - Lincoln(marca)
+    - lincoln(marca)
+    - Chrysler(marca)
+    - chrysler(marca)
+    - Dodge(marca)
+    - dodge(marca)
+    - NISSAN(marca)
+    - FORD(marca)
+    - CHEVROLET(marca)
+    - VOLKSWAGEN(marca)
+    - HONDA(marca)
+    - TOYOTA(marca)
+    - DODGE(marca)
+    - KIA(marca)
+    - RENAULT(marca)
+    - MAZDA(marca)
+    - SUZUKI(marca)
+    - FIAT(marca)
+    - MITSUBISHI(marca)
+    - PEUGEOT(marca)
+    - JEEP(marca)
+    - MERCEDES BENZ(marca)
+
+
+- intent: intent_peticion_alcaldia
+  examples: |
+    - Tlahuac(alcaldia)
+    - Tlalpan(alcaldia)
+    - Xochimilco(alcaldia)
+    - Alvaro Obregon(alcaldia)
+    - Azcapotzalco(alcaldia)
+    - Benito Juarez(alcaldia)
+    - Coyoacan(alcaldia)
+    - Cuajimalpa de Morelos(alcaldia)
+    - Cuauhtemoc(alcaldia)
+    - Gustavo A. Madero(alcaldia)
+    - Iztacalco(alcaldia)
+    - Iztapalapa(alcaldia)
+    - La Magdalena Contreras(alcaldia)
+    - Miguel Hidalgo(alcaldia)
+    - Milpa Alta(alcaldia)
+    - TLAHUAC(alcaldia)
+    - TLALPAN(alcaldia)
+    - XOCHIMILCO(alcaldia)
+    - ALVARO OBREGON(alcaldia)
+    - AZCAPOTZALCO(alcaldia)
+    - BENITO JUAREZ(alcaldia)
+    - COYOACAN(alcaldia)
+    - CUAJIMALPA DE MORELOS(alcaldia)
+    - CUAUHTEMOC(alcaldia)
+    - GUSTAVO A. MADERO(alcaldia)
+    - IZTACALCO(alcaldia)
+    - IZTAPALAPA(alcaldia)
+    - LA MAGDALENA CONTRERAS(alcaldia)
+    - MIGUEL HIDALGO(alcaldia)
+    - MILPA ALTA(alcaldia)
+    - VENUSTIANO CARRANZA(alcaldia)
+
+
+- intent: intent_peticion_colonia
+  examples: |
+    - UNIDAD VICENTE GUERRERO(colonia)
+    - MOCTEZUMA 2A. SECCION(colonia)
+    - HACIENDAS DE COYOACAN(colonia)
+    - ARGENTINA ANTIGUA(colonia)
+    - GUADALUPE INN(colonia)
+    - VICTORIA DE LAS DEMOCRACIAS(colonia)
+    - COPILCO EL BAJO(colonia)
+    - AGRICOLA PANTITLAN(colonia)
+    - PROGRESISTA(colonia)
+    - BARRIO DEL NINO JESUS(colonia)
+    - TOLTECA(colonia)
+    - BANJIDAL(colonia)
+    - PUEBLO SANTIAGO ACAHUALTEPEC(colonia)
+    - CUCHILLA PANTITLAN(colonia)
+    - RESIDENCIAL LA ESCALERA(colonia)
+    - LA NORIA(colonia)
+    - TLAXPANA(colonia)
+    - DOCTORES(colonia)
+    - MORELOS(colonia)
+    - ROMA NORTE(colonia)
+    - SAN JUAN DE ARAGON VI SECCION(colonia)
+    - MIRAVALLES(colonia)
+    - SAN JUAN(colonia)
+    - JUAREZ(colonia)
+    - POPOTLA(colonia)
+    - TEPALCATES(colonia)
+    - DEL VALLE SUR(colonia)
+    - TENORIOS(colonia)
+    - PUEBLO SAN FRANCISCO TLALTENCO(colonia)
+    - ESCANDON I SECCION(colonia)
+    - ESTRELLA(colonia)
+    - ESCANDON I SECCION(colonia)
+    - escandon i seccion(colonia)
+    - Escandon I Sección(colonia)
+    - estrella(colonia)
+    - Estrella(colonia)
+    - GUERRERO(colonia)
+    - guerrero(colonia)
+    - Guerrero(colonia)
+    - EJERCITO DE AGUA PRIETA(colonia)
+    - ejercito de agua prieta(colonia)
+    - Ejército de Agua Prieta(colonia)
+    - AGRICOLA ORIENTAL(colonia)
+    - agricola oriental(colonia)
+    - Agricola Oriental(colonia)
+    - DEL MAR(colonia)
+    - del mar(colonia)
+    - Del Mar(colonia)
+    - UNDAD SANTA CRUZ MEYEHUALCO(colonia)
+    - unidad santa cruz meyehualco(colonia)
+    - Unidad Santa Cruz Meyehualco(colonia)
+    - CENTRO(colonia)
+    - centro(colonia)
+    - Centro(colonia)
+    - EL MANTO(colonia)
+    - el manto(colonia)
+    - El Manto(colonia)
+    - LINDAVISTA SUR(colonia)
+    - lindavista sur(colonia)
+    - Lindavista Sur(colonia)
+    - BUENAVISTA(colonia)
+    - buenavista(colonia)
+    - Buenavista(colonia)
+    - ANO DE JUAREZ(colonia)
+    - ano de juarez(colonia)
+    - Año de Juárez(colonia)
+    - BOSQUE DE CHAPULTEPEC I SECCION(colonia)
+    - bosque de chapultepec i seccion(colonia)
+    - Bosque de Chapultepec I Sección(colonia)
+    - PRO HOGAR(colonia)
+    - pro hogar(colonia)
+    - Pro Hogar(colonia)
+    - DR ALFONSO ORTIZ TIRADO(colonia)
+    - dr alfonso ortiz tirado(colonia)
+    - Dr Alfonso Ortiz Tirado(colonia)
+    - REFORMA POLITICA(colonia)
+    - reforma politica(colonia)
+    - Reforma Política(colonia)
+    - CUAUHTEMOC(colonia)
+    - cuauhtemoc(colonia)
+    - Cuauhtémoc(colonia)
+    - MARTIN CARRERA(colonia)
+    - martin carrera(colonia)
+    - Martín Carrera(colonia)
+    - OBRERA(colonia)
+    - obrera(colonia)
+    - Obrera(colonia)
+    - CASTILLO CHICO(colonia)
+    - castillo chico(colonia)
+    - Castillo Chico(colonia)
+    - TACUBA(colonia)
+    - tacuba(colonia)
+    - Tacuba(colonia)
+    - CAMPESTRE ARAGON(colonia)
+    - campestre aragon(colonia)
+    - Campestre Aragón(colonia)
+    - unidad habitacional el zapato(colonia)
+    - Héroes de Chapultepec(colonia)
+    - ALAMOS(colonia)
+    - Del Valle(colonia)
+    - SAN JERONIMO(colonia)
+    - santa cruz atoyac(colonia)
+    - EL CARMEN(colonia)
+    - NAPOLES(colonia)
+    - Coyoacan(colonia)
+    - Las Águilas(colonia)
+    - ROMA(colonia)
+    - VILLAS DE IZTACALCO(colonia)
+    - LA GIRAFA(colonia)
+    - HOGAR Y FAMILIA(colonia)
+    - CUAUHTEMOC(colonia)
+    - VICTORIA(colonia)
+    - San Felipe(colonia)
+    - INDUSTRIAL(colonia)
+    - LINDAVISTA(colonia)
+    - NOCHE BUENA(colonia)
+    - BUENAVISTA(colonia)
+    - CARRIZAL(colonia)
+    - LOMAS DE CHAPULTEPEC(colonia)
+    - GUSTAVO A. MADERO(colonia)
+    - EMILIANO ZAPATA(colonia)
+    - TLALPAN(colonia)
+    - LAS AGUILAS(colonia)
+    - Jardines del Pedregal(colonia)
+    - Santa María la Ribera(colonia)
+    - San Juan de Aragón(colonia)
+    - NÁPOLES(colonia)
+    - CENTRO(colonia)
+    - SANTA MARÍA LA RIBERA(colonia)
+    - Balbuena(colonia)
+    - SAN ANGEL(colonia)
+    - TEPEPAN(colonia)
+    - MOCTEZUMA 2A. SECCIÓN(colonia)
+    - JOSE MARIA MORELOS(colonia)
+    - POLANCO(colonia)
+    - MIRAVALLES(colonia)
+    - CULHUACAN(colonia)
