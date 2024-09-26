@@ -40,26 +40,26 @@ rules:
 
 - rule: regla_latitud_longitud8
   steps:
-  - intent: intent_peticion_marca_auto
-  - action: utter_prediccion_categoria
-
-
-
+    - intent: intent_peticion_marca_auto
+    - action: action_get_address
 
 - rule: regla_alcaldia_colonia1
   steps:
   - intent: intent_preferencia1
   - action: utter_preferencia_manual
 
+
 - rule: regla_alcaldia_colonia2
   steps:
   - intent: intent_preferencia_manual1
   - action: utter_peticion_alcaldia
 
+
 - rule: regla_alcaldia_colonia3
   steps:
   - intent: intent_peticion_alcaldia
   - action: utter_peticion_colonia
+
 
 - rule: regla_alcaldia_colonia4
   steps:

@@ -25,12 +25,12 @@ entities:
 
 slots:
   latitud:
-    type: text
+    type: float
     mappings:
       - type: from_entity
         entity: latitud
   longitud:
-    type: text
+    type: float
     mappings:
       - type: from_entity
         entity: longitud
@@ -57,8 +57,6 @@ slots:
       - type: from_entity
         entity: alcaldia
 
-
-
 responses:
 
   utter_greet:
@@ -80,13 +78,13 @@ responses:
     - text: "No te preocupes, no pasa nada, compárteme entonces los siguientes datos."
 
   utter_peticion_alcaldia:
-    - text: 'Fabuloso, ingresa entonces tu Alcaldía:'
+    - text: 'Fabuloso, ingresa entonces tu Alcaldía (Intenta escribir en mayusculas todas las opciones, porfavor):'
 
   utter_peticion_colonia:
     - text: 'Colonia:'
 
   utter_peticion_latitud:
-    - text: 'Increíble, ingresa tu Latitud:'
+    - text: 'Increíble, ingresa tu Latitud (Intenta escribir en mayusculas todas las opciones, gracias):'
 
   utter_peticion_longitud:
     - text: 'Longitud:'
@@ -101,7 +99,12 @@ responses:
     - text: "Ubicación actual:"
 
   utter_prediccion_categoria:
-    - text: "El incidente de tránsito que es más probable que cometas de acuerdo a los siguientes datos: Alcaldía: alcaldia Colonia: colonia Color de auto: color Marca de auto: marca es prediccion"
+    - text: "El incidente de tránsito que es más probable que cometas de acuerdo a los siguientes datos: 
+             Alcaldía: {alcaldia} 
+             Colonia: {colonia}
+             Color de auto: {color}
+             Marca de auto: {marca}
+             es prediccion"
 
   utter_pdf_estadisticas:
     - text: 'En el link siguiente podrás visualizar las estadísticas generales que más ocurren en la Alcaldía {alcaldia}, Colonia {colonia}.'
@@ -109,6 +112,8 @@ responses:
   utter_despedida:
     - text: "Fue un gusto ayudarte a prevenir un incidente de tránsito, recuerda manejar con precaución."
 
+actions:
+  - action_get_address: {send_domain: True}
 
 session_config:
   session_expiration_time: 60

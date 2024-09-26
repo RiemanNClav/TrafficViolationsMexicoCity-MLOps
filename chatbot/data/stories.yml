@@ -13,13 +13,23 @@ stories:
     - intent: intent_preferencia_manual2
     - action: utter_peticion_latitud
     - intent: intent_peticion_latitud
+      entities:
+        - latitud
     - action: utter_peticion_longitud
     - intent: intent_peticion_longitud
+      entities:
+        - longitud    
     - action: utter_peticion_color_auto
     - intent: intent_peticion_color_auto
+      entities:
+        - color
     - action: utter_peticion_marca_auto
     - intent: intent_peticion_marca_auto
-    - action: utter_prediccion_categoria
+      entities:
+        - marca
+    - action: action_get_address
+
+
 
 - story: manulamente_alcaldia_colonia1
   steps:
@@ -32,10 +42,18 @@ stories:
     - intent: intent_preferencia_manual1
     - action: utter_peticion_alcaldia
     - intent: intent_peticion_alcaldia
+      entities:
+        - alcaldia
     - action: utter_peticion_colonia
     - intent: intent_peticion_colonia
+      entities:
+        - colonia
     - action: utter_peticion_color_auto
     - intent: intent_peticion_color_auto
+      entities:
+        - color
     - action: utter_peticion_marca_auto
     - intent: intent_peticion_marca_auto
-    - action: utter_prediccion_categoria
+      entities:
+        - marca
+    - action: action_get_address

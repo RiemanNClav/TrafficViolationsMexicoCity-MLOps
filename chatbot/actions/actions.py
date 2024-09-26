@@ -2,51 +2,64 @@
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-import json
+from rasa_sdk.events import SlotSet
+from actions.api import ApiRequest
+from src.prediction.pipeline_prediction import PredictPipeline, CustomData
 
 
-# class ActionHelloWorld(Action):
-#     def name(self) -> Text:
-#         return "action_hello_world"
-    
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#          dispatcher.utter_message(text="Hello World!")
-#          return []
+class ActionGetAddressLatLong(Action):
 
-# class ActionObtenerUbicacion(Action):
-#     def name(self):
-#         return "action_obtener_ubicacion"
+    def name(self) -> Text:
+        return "action_get_address"
 
-#     def run(self, dispatcher, tracker, domain):
-#         latitud = tracker.get_slot('latitud')
-#         longitud = tracker.get_slot('longitud')
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, 
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-#         direccion = obtener_direccion(latitud, longitud)
+        # Obtener los valores de los slots
 
-#         dispatcher.utter_message(text=f"Te encuentras en {direccion}")
-#         return []
+        latitud = tracker.get_slot('latitud')
+        longitud = tracker.get_slot('longitud')
+        colonia = tracker.get_slot('colonia')
+        alcaldia = tracker.get_slot('alcaldia')
+        color = tracker.get_slot('color')
+        marca = tracker.get_slot('marca')
 
+        api = ApiRequest()
 
-# class ActionHandleLocation(Action):
+        if (colonia == None and alcaldia == None):
 
-#     def name(self) -> str:
-#         return "action_handle_location"
+            try:
+                address = api.api_request_object_1(latitud, longitud)
+                alcaldia, colonia, dia, mes = address
+            except:
+                response = 'No se encontraron las coordenadas que proporcionaste'
+                dispatcher.utter_message(text=response)
+                return [SlotSet("latitud", None), SlotSet("longitud", None), SlotSet("colonia", None), SlotSet("alcaldia", None), SlotSet("color", None), SlotSet("marca", None)]
 
-#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: dict):
-#         # Aquí simulamos que el chatbot recibe un JSON con la ubicación
-#         last_message = tracker.latest_message['text']
+        else:
+
+            try:
+                address = api.api_request_object_2(alcaldia, colonia)
+                latitud, longitud, dia, mes = address
+            except:
+                response = 'No se encontró la dirreción que proporcionaste'
+                dispatcher.utter_message(text=response)
+                return [SlotSet("latitud", None), SlotSet("longitud", None), SlotSet("colonia", None), SlotSet("alcaldia", None), SlotSet("color", None), SlotSet("marca", None)]
+            
         
-#         # Supongamos que el mensaje es un JSON con coordenadas
-#         try:
-#             location_data = json.loads(last_message)
-#             latitude = location_data['location']['latitude']
-#             longitude = location_data['location']['longitude']
+        data = CustomData(mes, dia, marca, colonia, alcaldia) 
+        pred_df = data.get_data_as_data_frame()
+        predict_pipeline=PredictPipeline()
+        prediccion = predict_pipeline.predict(pred_df)
 
-#             # Aquí puedes hacer lo que quieras con las coordenadas
-#             dispatcher.utter_message(text=f"Recibí tu ubicación: Latitud {latitude}, Longitud {longitude}")
-#         except (json.JSONDecodeError, KeyError):
-#             dispatcher.utter_message(text="No pude entender la ubicación.")
-        
-#         return []
+        response = f"Los datos basados en estas coordenadas ({latitud}, {longitud}) son: \n"
+        response += f"Alcaldia: {alcaldia} \n"
+        response += f"Colonia: {colonia} \n"
+        response += f"Dia: {dia} \n"
+        response += f"Mes: {mes} \n"
+        response += f"Color del Automovil: {color} \n"
+        response += f"Marca del Automovil: {marca} \n"
+        response += f"El incidente de tránsito que es más probable que cometas de acuerdo a estos registros es : {prediccion} \n"
+
+        dispatcher.utter_message(text=response)
+        return [SlotSet("latitud", None), SlotSet("longitud", None), SlotSet("colonia", None), SlotSet("alcaldia", None), SlotSet("color", None), SlotSet("marca", None)]
